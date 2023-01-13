@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block nav %}
+<li><a href="/">Notes</a></li>
+<li class="right">
+    <a href="{% url 'add_note' %}">Add Note</a>
+    <a href="{% url 'profile' %}">Profile</a>
+</li>
+{% endblock %}
+<!--end navigation bar-->
+{% block content %}
+<div class="body">
+    <!--headings-->
+    <h1>Edit Note</h1>
+    <!--headings-->
+
+    <!--note edit data form-->
+    <div class="form">
+        <form method="post" action="{% url 'edit_note' note.pk %}">
+            {{ form }}
+            {% csrf_token %}
+            <input type="submit" value="Edit"/>
+        </form>
+    </div>
+    <!--end note edit data form-->
+</div>
+{% endblock %}
+
